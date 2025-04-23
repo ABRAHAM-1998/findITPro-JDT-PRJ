@@ -1,0 +1,84 @@
+<body>
+    <header>
+      <nav>
+        <div class="logo">FindITPro</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li><a [routerLink]="['/admin']">Admin</a></li>
+          <li><a [routerLink]="['/notification-sent']"><i class="bi bi-bell-fill"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="admin-section">
+      <h2>Admin Panel</h2>
+      <p>Manage companies and perform administrative tasks.</p>
+      <!-- Admin Functions -->
+      <div class="admin-functions">
+        <!-- Total Companies -->
+        <div class="function-card">
+          <h3><i class="bi bi-building-fill"></i> Total Companies</h3>
+          <p class="count">{{totalCompanies}}</p>
+        </div>
+  
+        <!-- Delete Company -->
+          <div class="function-card">
+            <h3><i class="bi bi-building-fill-add"></i>Requests</h3>
+            <a [routerLink]="['/requests']" class="view-button">View Requests</a>
+          </div>
+  
+        <!-- Add Company -->
+        <div class="function-card">
+          <h3><i class="bi bi-info-square-fill"></i> Help & Support</h3>
+          <a [routerLink]="['/helpMessages']" class="add-button">View Messages</a>
+        </div>
+  
+        <!-- View Reviews -->
+        <div class="function-card">
+          <h3><i class="bi bi-chat-text-fill"></i> View Messages</h3>
+          <a [routerLink]="['/contacts']" class="view-button">View Messages</a>
+        </div>
+      </div>
+  
+      <!-- Company List -->
+      <div class="company-list">
+        <h3>Company List</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Location</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let company of companies; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ company.name }}</td>
+              <td>{{ company.category }}</td>
+              <td>{{ company.location }}</td>
+              <td>
+                <button class="edit-button" (click)="editCompany(company.id)">
+                  <i class="bi bi-pencil-fill"></i> Edit
+                </button>
+                <button class="delete-button" (click)="deleteCompany(company.id)">
+                  <i class="bi bi-trash-fill"></i> Delete
+                </button>
+                <button class="verified-button" *ngIf="!company.verified" (click)="verifyCompany(company.id)">
+                  <i class="bi bi-patch-check-fill"></i> Verify
+                </button>
+                <span *ngIf="company.verified" class="verified-label">
+                  <i class="bi bi-patch-check-fill"></i> Verified
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  
+    <footer>
+      <p>&copy; 2025 FindITPro. All rights reserved.</p>
+    </footer>
+  </body>

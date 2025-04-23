@@ -1,0 +1,28 @@
+    <header>
+      <nav>
+        <div class="logo">TechSolutions</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/home']">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+<section class="chat-user-list">
+    <div class="chat-header">
+      <h2>Messages / Chats</h2>
+    </div>
+    
+    <div class="chat-list">
+      <ul>
+        <li *ngFor="let user of chatUsers" (click)="loadChatWith(user)" class="chat-item">
+          <div class="chat-item-details">
+            <span class="user-name">{{ user.name || 'Unknown User' }}</span>
+            <span class="user-uid">({{ user.uid }})</span>
+          </div>
+          <div class="chat-item-status">
+            <span class="status-text">Active</span> <!-- Placeholder for user status -->
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  

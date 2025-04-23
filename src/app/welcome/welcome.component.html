@@ -1,0 +1,79 @@
+<body>
+  <header>
+    <nav>
+      <div class="logo">FindITPro</div>
+      <!-- Hamburger Menu Icon -->
+      <div class="hamburger" (click)="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- Navigation Links -->
+      <ul class="nav-links" [class.active]="isNavActive">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a [routerLink]="['/login']">LOGIN</a></li>
+      </ul>
+    </nav>
+    <div class="hero">
+      <h1>Bridging Innovation and Expertise</h1>
+      <p>Your Trusted IT Network Connecting Clients to Top-Tier Technology Solutions.</p>
+      <a (click)="goToHome()" class="cta-button">Explore</a>
+    </div>
+  </header>
+  <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Client Matching & Lead Generation</h3>
+        <p>AI-powered matching, verified leads, RFP system.</p>
+      </div>
+      <div class="service-card">
+        <h3>Marketing & Branding</h3>
+        <p>Profile optimization, SEO, content marketing, social media promotion.</p>
+      </div>
+      <div class="service-card">
+        <h3>Networking & Collaboration</h3>
+        <p>Virtual events, industry networking, partnership programs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Business & Sales Support</h3>
+        <p> Consulting, CRM tools, proposal templates, sales resources.</p>
+      </div>
+      <div class="service-card">
+        <h3>Technical & Support Services</h3>
+        <p> IT service directory, project management, freelancer hiring, client reviews.
+        </p>
+      </div>
+      <div class="service-card">
+        <h3>Funding & Investment Support</h3>
+          <p> Connect startups with investors, grant opportunities, and crowdfunding platforms.
+          </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>Welcome to Find IT Pro, the trusted bridge between businesses and top-tier IT solutions. We specialize in connecting clients with the best IT companies and professionals, ensuring seamless collaboration and exceptional results.
+
+      Our mission is to simplify the complex world of technology by acting as your strategic partner. Whether you need expert IT consulting, project outsourcing, or skilled talent, we match you with the right resources to meet your goals efficiently and cost-effectively.
+      
+      With a vast network of trusted IT providers and a commitment to quality, we empower businesses to innovate, grow, and thrive in today’s digital landscape. Let us handle the connections while you focus on what matters most—your success.</p>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" [(ngModel)]="contactMessage.name" name="name" placeholder="Your Name" required>
+      <input type="email" [(ngModel)]="contactMessage.email" name="email" placeholder="Your Email" required>
+      <textarea [(ngModel)]="contactMessage.message" name="message" placeholder="Your Message" required></textarea>
+      <button type="button" (click)="sendMessage()">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Find IT Pro. All rights reserved.</p>
+  </footer>
+</body>

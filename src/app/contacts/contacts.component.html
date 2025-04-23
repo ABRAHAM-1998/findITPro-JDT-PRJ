@@ -1,0 +1,41 @@
+<body>
+  <header>
+    <nav>
+      <div class="logo">FindITPro</div>
+      <ul class="nav-links">
+        <li><a [routerLink]="['/home']">Home</a></li>
+        <li><a [routerLink]="['/admin']">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="messages-section">
+    <div class="messages-container">
+      <!-- Left Side: Message Content -->
+      <div class="user-list">
+        <h2>Users</h2>
+        <ul>
+          <li class="user-item" *ngFor="let msg of messages" (click)="selectMessage(msg)"
+          [class.active]="msg === selectedMessage">
+            <span class="user-name">{{msg.name}}</span>
+            <span class="message-delete" (click)="deleteMessage(msg.id)"><i class="bi bi-trash3"></i></span>
+          </li>
+        </ul>
+      </div>
+      <!-- Right Side: User List -->
+      <div class="message-content" *ngIf="selectedMessage">
+        <h2>Message Details</h2>
+        <div class="message-info">
+          <p><strong>Name:</strong>{{ selectedMessage.name }}</p>
+          <p><strong>Email:</strong>{{ selectedMessage.email }}</p>
+          <p><strong>Message:</strong></p>
+          <div class="message-text">
+            <p>{{ selectedMessage.message }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 FindITPro. All rights reserved.</p>
+  </footer>
+</body>

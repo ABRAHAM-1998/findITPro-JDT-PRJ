@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+  background: #f4f4f9;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #6a11cb;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Header and Navigation */
+header {
+  background: linear-gradient(135deg, #384367, #45537f);
+  color: #fff;
+  padding: 20px 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links li a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ddd;
+}
+
+/* User Icon */
+#user {
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+  display: block; /* Ensure it remains visible */
+}
+
+/* User Menu */
+.user-menu {
+  position: absolute;
+  top: 50px; /* Adjust based on your header height */
+  right: 20px; /* Adjust based on your layout */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.user-info {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.user-email {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items li {
+  border-bottom: 1px solid #eee;
+}
+
+.menu-items li:last-child {
+  border-bottom: none;
+}
+
+.menu-items li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.menu-items li a:hover {
+  color: #333;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.menu-items li a i {
+  margin-right: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Logout Button */
+.menu-items li:last-child a {
+  color: #ff4d4d; /* Red color for logout */
+}
+
+.menu-items li:last-child a i {
+  color: #ff4d4d;
+}
+
+.menu-items li:last-child a:hover {
+  background: #ffe6e6; /* Light red background on hover */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: static; /* Remove absolute positioning */
+    background: transparent; /* Remove background */
+    width: auto; /* Allow it to adjust */
+    display: flex !important; /* Ensure it remains visible */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-links li {
+    margin: 5px 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+    color: #fff; /* Keep white color */
+    display: block;
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger menu since we don’t need it */
+  }
+}
+
+
+
+/* Home Section */
+.home-section {
+  padding: 80px 20px;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Category Filter (Right Side) */
+.category-filter {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-filter h3 {
+  font-size: 19px;
+  margin-bottom: 15px;
+  color: #45537f;
+  font-family: 'Poppins';
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.category-filter ul {
+  list-style: none;
+  padding: 0;
+}
+
+.category-filter ul li {
+  margin-bottom: 10px;
+}
+
+.category-filter ul li a {
+  text-decoration: none;
+  color: #666;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.category-filter ul li a:hover {
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.category-filter ul li a.active {
+  color: #000000;
+  font-weight: 600;
+}
+
+/* Company List (Left Side) */
+.company-list {
+  flex: 1;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Flexible grid layout */
+  gap: 20px;
+}
+
+.company-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid #ccc;
+  text-align: center;
+  max-width: 100%; /* Allow cards to take full width */
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+}
+
+.company-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.company-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.company-card .services {
+  font-size: 12px;
+  color: #444;
+}
+
+.company-card .description {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+
+  .bi-star-fill {
+    color: #ccc; // Default color (gray)
+    margin-right: 3px;
+  }
+
+  .filled {
+    color: #ffc107; // Highlighted stars (yellow)
+  }
+
+  .score {
+    margin-left: 5px;
+    font-weight: bold;
+  }
+}
+.view-details {
+  display: inline-block;
+  background: #45537f;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 15px;
+  font-size: 12px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  font-family: 'Poppins';
+}
+
+.view-details:hover {
+  cursor: pointer;
+  background-color: #384367;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #333;
+  color: #fff;
+  margin-top: 40px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack filter and cards vertically */
+    gap: 20px;
+  }
+
+  .category-filter {
+    width: 100%; /* Full width for filter */
+    margin-bottom: 20px; /* Space between filter and cards */
+  }
+
+  .company-grid {
+    grid-template-columns: repeat(1, 1fr); /* 2 cards in a row */
+    gap: 10px; /* Reduce gap between cards */
+  }
+
+  .company-card {
+    padding: 10px; /* Reduce padding */
+  }
+
+  .company-card h3 {
+    font-size: 16px; /* Reduce font size for the company name */
+  }
+
+  .company-card .services {
+    font-size: 12px; /* Reduce font size for services */
+  }
+
+  .company-card .description {
+    font-size: 12px; /* Reduce font size for description */
+  }
+
+  .company-logo {
+    width: 60px; /* Reduce logo size */
+    height: 60px;
+  }
+
+  .rating .stars {
+    font-size: 12px; /* Reduce star size */
+  }
+
+  .rating .score {
+    font-size: 10px; /* Reduce score font size */
+  }
+
+  .view-details {
+    padding: 6px 12px; /* Reduce button padding */
+    font-size: 10px; /* Reduce button font size */
+  }
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Filter Toggle Button for Mobile */
+.filter-toggle {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+// /* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .filter-toggle {
+    display: block; /* Show filter toggle button on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  .category-filter {
+    display: none; /* Hide filter by default on mobile */
+  }
+
+  .category-filter.active {
+    display: block; /* Show filter when active */
+  }
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Filter Toggle Button for Mobile */
+.filter-toggle {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
+  .filter-toggle {
+    display: block; /* Show filter toggle button on mobile */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  .category-filter {
+    display: none; /* Hide filter by default on mobile */
+  }
+
+  .category-filter.active {
+    display: block; /* Show filter when active */
+  }
+}
+
+/* User Menu - Mobile Fix */
+@media (max-width: 768px) {
+  .user-menu {
+    display: block; /* Ensure it's visible */
+    position: absolute;
+    top: 50px; /* Adjust if needed */
+    right: 10px;
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .menu-items li {
+    display: block; /* Ensure list items are visible */
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu-items li:last-child {
+    border-bottom: none;
+  }
+
+  .menu-items li a {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .menu-items li a:hover {
+    background: #f5f5f5;
+  }
+
+  /* Ensure icons are visible */
+  .menu-items li a i {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+}
+
+
+// darkmode code
+
+/* Default Light Mode */
+body {
+  background: #f4f4f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+/* Default Light Mode */
+body {
+  background: #f4f4f9;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}

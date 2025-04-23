@@ -1,0 +1,96 @@
+  <body>
+    <header>
+      <nav>
+        <div class="logo">FindITPro</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/register']">Register Your Company</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="details-section">
+      <div class="details-container">
+        <h2>{{state.name}}</h2>
+        <p class="tagline">Innovative IT Solutions for Your Business</p>
+
+        <!-- Company Details -->
+        <div class="company-details">
+          <!-- Company Overview -->
+          <div class="company-overview">
+            <img src={{state.logoUrl}} alt="Company A Logo" class="company-logo">
+            <div class="overview-text">
+              <h3>About Us</h3>
+              <p>{{state.details}}</p>
+            </div>
+          </div>
+          <!-- Services -->
+          <div class="company-services">
+            <h3>Our Services</h3>
+            <ul *ngFor="let s of state.services">
+              <li><i class="bi bi-chevron-right"></i>{{s}}</li>
+            </ul>
+          </div>
+
+          <!-- Contact Information and Map Section -->
+<div class="contact-map-container">
+  <!-- Contact Information -->
+  <div class="company-contact">
+    <h3>Contact Us</h3>
+    <p><i class="bi bi-envelope-at-fill"></i> <strong>Email:</strong>{{state.email}}</p>
+    <p><i class="bi bi-telephone-fill"></i> <strong>Phone:</strong>{{state.phone}}</p>
+    <p><i class="bi bi-geo-alt-fill"></i> <strong>Location:</strong>{{state.location}}</p>
+    <p><i class="bi bi-geo-alt-fill"></i> <strong>Address:</strong>{{state.address}}</p>
+    <button (click)="fnChat()"><i class="bi bi-send"></i>Chat With Us</button>
+  </div> 
+
+  <!-- Dynamic Map Section -->
+  <div class="map-container">
+    <h3>Our Location</h3>
+    <div id="map" class="map" style="width: 100%; height: 300px;"></div>
+  </div>  
+</div>
+
+          <!-- Rating and Comment Section -->
+          <div class="rating-comment-section">
+            <h3>Rate and Review</h3>
+            <div class="rating-input">
+              <span>Your Rating:</span>
+              <div class="stars">
+                <i class="bi bi-star-fill" *ngFor="let star of [1,2,3,4,5]" 
+                   [class.active]="star <= userRating"
+                   (click)="selectRating(star)">
+                </i>
+              </div>
+              <span class="rating-text">{{ userRating }}/5</span>
+            </div>
+            
+            <form class="comment-form" (submit)="submitReview()">
+              <textarea [(ngModel)]="userComment" name="userComment" placeholder="Write your review here..." required></textarea>
+              <button type="submit">Submit Review</button>  
+            </form>
+          </div>
+          <!-- Display Reviews -->
+          <div class="reviews-section">
+            <h3>Client Reviews</h3>
+            <div *ngFor="let review of reviews" class="review">
+              <div class="review-header">
+                <span class="reviewer">{{review.userName}}</span>
+                <span class="review-rating">
+                  <i *ngFor="let star of [1,2,3,4,5]" class="bi bi-star-fill" [class.active]="star <= review.rating"></i>
+                  <strong>{{ review.rating }}/5</strong>
+                </span>
+              </div>
+              <p class="review-text">{{ review.comment }}</p>
+            </div>
+          </div>          
+        </div>
+
+        <!-- Back to Listings Button -->
+        <a href="listing.html" class="back-button" [routerLink]="['/home']">Back to Listings</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 FindITPro. All rights reserved.</p>
+    </footer>
+  </body>

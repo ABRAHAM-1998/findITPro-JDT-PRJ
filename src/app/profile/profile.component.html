@@ -1,0 +1,98 @@
+<body>
+    <header>
+      <nav>
+        <div class="logo">FindITPro</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li><a [routerLink]="['/profile']">Profile</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <section class="profile-section">
+      <div class="profile-container">
+        <!-- Left Side: Company Details -->
+         <div class="user-profile">
+          <div class="profile-header">
+            <div class="profile-pic">
+              <img src="https://via.placeholder.com/150" alt="Profile Picture">
+              <button class="change-pic">Change Photo</button>
+            </div>
+            <div class="profile-info">
+              <h2>{{name}}</h2>
+              <p class="email">{{email}}</p>
+              <p class="role">Company Administrator</p>
+            </div>
+          </div>
+  
+          <div class="profile-actions">
+            <button class="action-button" [routerLink]="['/settings']"><i class="bi bi-person-fill-gear"></i> Edit Profile</button>
+            <button class="action-button" [routerLink]="['/settings']"><i class="bi bi-lock-fill"></i> Change Password</button>
+            <button class="action-button" [routerLink]="['/settings']"><i class="bi bi-bell-fill"></i> Notification Settings</button>
+            <button class="action-button logout" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Log Out</button>
+          </div>
+        </div>
+
+  
+        <!-- Right Side: User Profile -->
+                <div class="company-details">
+          <div class="section-header">
+            <h2>Company Details</h2>
+            <button class="edit-button"><i class="bi bi-pencil"></i> Edit</button>
+          </div>
+          
+          <div class="company-info">
+            <div class="company-logo">
+              <img src="https://firebasestorage.googleapis.com/v0/b/vintage-vault-786.appspot.com/o/company-logos%2F1741329567019_secure-technology-logo-png-transparent.png?alt=media&token=abef04ed-f3ac-4730-8bc4-5e7fb4b1e6c0" alt="Company Logo">
+              <button class="change-logo">Change Logo</button>
+            </div>
+            <div class="company-text">
+              <div class="detail-item">
+                <label>Company Name</label>
+                <p>Secured IT</p>
+              </div>
+              <div class="detail-item">
+                <label>Tagline</label>
+                <p>Innovative solutions for modern businesses</p>
+              </div>
+              <div class="detail-item">
+                <label>Email</label>
+                <p>contactsecuresolutions.co.in</p>
+              </div>
+              <div class="detail-item">
+                <label>Phone</label>
+                <p>+91 484 405 7007</p>
+              </div>
+              <div class="detail-item">
+                <label>Address</label>
+                <p>#37/1383-A11, Panorama Residency Lane Kumaranasan Road, Kadavanthara, Kochi - 682020</p>
+              </div>
+              <div class="detail-item">
+                <label>Category</label>
+                <p>Cybersecurity</p>
+              </div>
+              <div class="detail-item">
+                <label>Services</label>
+                <ul>
+                  <li>Cybersecurity risk assessments</li>
+                  <li>incident response</li>
+                  <li>malware removal</li>
+                  <li>IT security audits</li>
+                  <li>network monitoring</li>
+                  <li>cloud security</li>
+                </ul>
+              </div>
+              <div class="detail-item">
+                <label>Description</label>
+                <p>Secured IT provides end-to-end cybersecurity services, protecting clients’ digital assets and ensuring they remain safe from external threats</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer>
+      <p>&copy; 2025 FindITPro. All rights reserved.</p>
+    </footer>
+  </body>

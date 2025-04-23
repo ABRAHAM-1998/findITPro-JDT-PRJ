@@ -1,0 +1,237 @@
+<body>
+    <header>
+      <nav>
+        <div class="logo">FindITPro</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/home']">Home</a></li>
+          <li><a [routerLink]="['/settings']">Settings</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <section class="settings-profile-section">
+      <div class="settings-profile-container">
+        <!-- Left Side: Navigation Menu -->
+        <div class="settings-nav">
+          <ul>
+            <li [ngClass]="{'active': activeTabIndex === 0}">
+              <a  (click)="changeTab(0)">
+                <i class="bi bi-person"></i> Profile
+              </a>
+            </li>
+            <li [ngClass]="{'active': activeTabIndex === 1}">
+              <a  (click)="changeTab(1)">
+                <i class="bi bi-incognito"></i> Account Settings
+              </a>
+            </li>
+            <li [ngClass]="{'active': activeTabIndex === 2}">
+              <a  (click)="changeTab(2)">
+                <i class="bi bi-shield"></i> Security
+              </a>
+            </li>
+            <li [ngClass]="{'active': activeTabIndex === 3}">
+              <a  (click)="changeTab(3)">
+                <i class="bi bi-bell"></i> Notifications
+              </a>
+            </li>
+            <li [ngClass]="{'active': activeTabIndex === 4}">
+              <a  (click)="changeTab(4)">
+                <i class="bi bi-lock-fill"></i> Privacy
+              </a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Right Side: Content Area -->
+        <div class="settings-content">
+          <!-- Profile Section -->
+          <div id="profile" class="content-section" [ngClass]="{'active': activeTabIndex === 0}">
+            <h2>Profile Information</h2>
+            <div class="profile-header">
+              <div class="profile-pic">
+                <img alt="Profile Picture">
+                <button class="change-pic"><i class="bi bi-camera"></i> Change Photo</button>
+              </div>
+              <div class="profile-info">
+                <h3>{{name}}</h3>
+                <p class="email">{{email}}</p>
+                <p class="role">Company Administrator</p>
+              </div>
+            </div>
+  
+            <form class="profile-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" value="Ajmal">
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" value="Roshan K K">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value={{email}}>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" value=" ">
+              </div>
+              <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" rows="4"></textarea>
+              </div>
+              <button type="submit" class="save-button">Save Changes</button>
+            </form>
+          </div>
+  
+          <!-- Account Settings Section -->
+          <div id="account" class="content-section" [ngClass]="{'active': activeTabIndex === 1}">
+            <h2>Account Settings</h2>
+            <form class="account-form">
+              <div class="form-group">
+                <label>Language Preference</label>
+                <select>
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>German</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Timezone</label>
+                <select>
+                  <option>(GMT-08:00) Pacific Time</option>
+                  <option>(GMT-05:00) Eastern Time</option>
+                  <option>(GMT+00:00) London</option>
+                  <option>(GMT+05:30) India</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Theme</label>
+                <div class="theme-options">
+                  <label class="theme-option">
+                    <input type="radio" name="theme" checked>
+                    <span class="theme-light"></span>
+                    Light
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme">
+                    <span class="theme-dark"></span>
+                    Dark
+                  </label>
+                  <label class="theme-option">
+                    <input type="radio" name="theme">
+                    <span class="theme-system"></span>
+                    System
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="save-button">Save Preferences</button>
+            </form>
+          </div>
+  
+          <!-- Security Section -->
+          <div id="security" class="content-section" [ngClass]="{'active': activeTabIndex === 2}">
+            <h2>Security Settings</h2>
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Password</h4>
+                <p>Last changed 3 months ago</p>
+              </div>
+              <button class="change-button">Change Password</button>
+            </div>
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Two-Factor Authentication</h4>
+                <p>Add an extra layer of security</p>
+              </div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Active Sessions</h4>
+                <p>2 active sessions</p>
+              </div>
+              <button class="view-button">View All</button>
+            </div>
+            <div class="security-item">
+              <div class="security-info">
+                <h4>Login History</h4>
+                <p>Last login: Today, 10:30 AM from Chrome on Windows</p>
+              </div>
+              <button class="view-button">View History</button>
+            </div>
+          </div>
+  
+          <!-- Notifications Section -->
+          <div id="notifications" class="content-section" [ngClass]="{'active': activeTabIndex === 3}">
+            <h2>Notification Settings</h2>
+            <form class="notifications-form">
+              <div class="form-group">
+                <label>Email Notifications</label>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Push Notifications</label>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>SMS Notifications</label>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <button type="submit" class="save-button">Save Notifications Settings</button>
+            </form>
+          </div>
+  
+          <!-- Privacy Section -->
+          <div id="privacy" class="content-section" [ngClass]="{'active': activeTabIndex === 4}">
+            <h2>Privacy Settings</h2>
+            <form class="privacy-form">
+              <div class="form-group">
+                <label>Profile Visibility</label>
+                <select>
+                  <option>Public</option>
+                  <option>Friends Only</option>
+                  <option>Private</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Search Engine Visibility</label>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Third-Party Data Sharing</label>
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <button type="submit" class="save-button">Save Privacy Settings</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer class="fixed-bottom">
+      <p>&copy; 2025 FindITPro. All rights reserved.</p>
+    </footer>
+  </body>
+  

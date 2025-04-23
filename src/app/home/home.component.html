@@ -1,0 +1,116 @@
+<body>
+  <header>
+    <nav>
+      <div class="logo">FindITPro</div>
+
+      <!-- Hamburger Menu Icon for Mobile -->
+    
+      <ul class="nav-links" [ngClass]="{ 'active': isMobileMenuOpen }">
+        <!-- JOIN TO THE NETWORK Link -->
+        
+
+        <!-- User Icon (Acts as a toggle for the user menu) -->
+        <li>
+          <a id="user" (click)="toggleUserMenu()">
+            <i class="bi bi-person-circle"></i> <!-- User Icon -->
+          </a>
+          <!-- User Info Dropdown -->
+          <div class="user-menu" *ngIf="isUserMenuOpen">
+            <div class="user-info">
+              <p class="user-name">{{ user.name }}</p>
+              <p class="user-email">{{ user.email }}</p>
+            </div>
+            <ul class="menu-items">
+              <li>
+                <a [routerLink]="['/profile']">
+                  <i class="bi bi-pencil"></i>
+                  Edit Profile
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/settings']">
+                  <i class="bi bi-gear"></i>
+                  Settings & Privacy
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="['/help&support']">
+                  <i class="bi bi-question-circle"></i>
+                  Help & Support
+                </a>
+              </li>
+              <li>
+                <a>
+                  <i class="bi bi-brightness-high"></i>
+                  Display & Accessibility
+                </a>
+              </li>
+              <li>
+                <li><a [routerLink]="['/chat-list']"><i class="bi bi-chat"></i>CHATS</a></li>
+              <li>
+              <li>
+                <li><a [routerLink]="['/register']"><i class="bi bi-building-add"></i>JOIN TO THE NETWORK</a></li>
+              <li>
+
+                <a (click)="logout()">
+                  <i class="bi bi-box-arrow-right"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="home-section">
+    <div class="container">
+      <!-- Filter Menu Toggle Button for Mobile -->
+      <div class="filter-toggle" (click)="toggleFilterMenu()">
+        <i class="bi bi-filter"></i> Filter by Category
+      </div>
+
+      <!-- Filter Section -->
+      <aside class="category-filter" [ngClass]="{ 'active': isFilterMenuOpen }">
+        <h3>Filter by Category</h3>
+        <ul>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'All' }" (click)="selectCategory('All')">All</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Software Development' }" (click)="selectCategory('Software Development')">Software Development</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Artificial Intelligence & Data Science' }" (click)="selectCategory('Artificial Intelligence & Data Science')">Artificial Intelligence & Data Science</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Cybersecurity' }" (click)="selectCategory('Cybersecurity')">Cybersecurity</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'IT Services & Consulting Firms' }" (click)="selectCategory('IT Services & Consulting Firms')">IT Services & Consulting Firms</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Web & Mobile App Development' }" (click)="selectCategory('Web & Mobile App Development')">Web & Mobile App Development</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Cloud Computing & Virtualization' }" (click)="selectCategory('Cloud Computing & Virtualization')">Cloud Computing & Virtualization</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Game Development & Gaming Tech' }" (click)="selectCategory('Game Development & Gaming Tech')">Game Development & Gaming Tech</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'Blockchain & Web3' }" (click)="selectCategory('Blockchain & Web3')">Blockchain & Web3</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'IT Infrastructure & Networking Companies' }" (click)="selectCategory('IT Infrastructure & Networking Companies')">IT Infrastructure & Networking Companies</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'IoT & Smart Devices Companies' }" (click)="selectCategory('IoT & Smart Devices Companies')">IoT & Smart Devices Companies</a></li>
+          <li><a [ngClass]="{ 'active': selectedCategory === 'IT Research & Development' }" (click)="selectCategory('IT Research & Development')">IT Research & Development</a></li>
+        </ul>
+      </aside>
+      <main class="company-list">
+        <div class="company-grid">
+          <div class="company-card" *ngFor="let comp of filteredCompanies">
+            <img src="{{comp.logoUrl}}" alt="Company Logo" class="company-logo">
+            <h3><i class="bi bi-patch-check-fill" *ngIf="comp.verified"></i>  {{comp.name}}</h3>
+            <p class="services"><strong>Catagory:</strong> {{comp.category}}</p>
+            <p class="description">{{comp.description}}</p>
+            <div class="rating">
+              <span class="stars">
+                <ng-container *ngFor="let star of [1,2,3,4,5]">
+                  <i class="bi bi-star-fill" [class.filled]="star <= comp.averageRating"></i>
+                </ng-container>
+              </span>
+              <span class="score"></span>
+            </div>
+            <a class="view-details" (click)="viewCompanies(comp)" >View Details</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2023 TechSolutions. All rights reserved.</p>
+  </footer>
+</body>

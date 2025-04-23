@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+    background: #f4f4f9;
+  }
+  h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #384367;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  /* Header and Navigation */
+  header {
+    background: linear-gradient(135deg, #384367, #45537f);
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap:30px;
+    align-items: center;
+  }
+  
+  .nav-links li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  #user{
+    font-size: 25px;
+  }
+
+  
+  .nav-links li a:hover {
+    color: #d4cfcf;
+  }
+
+  /* Details Section */
+  .details-section {
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tagline {
+    font-size: 20px;
+    color: #45537f;
+    margin-bottom: 40px;
+  }
+  
+  .company-details {
+    text-align: left;
+  }
+  
+  .company-overview {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .company-logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .overview-text {
+    flex: 1;
+  }
+  
+  .company-services ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .company-services ul li {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .company-services ul li i {
+    color: #384367;
+  }
+
+
+  /* Contact and Map Container */
+.contact-map-container {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.company-contact {
+  flex: 1;
+}
+
+.map-container {
+  flex: 1;
+}
+
+.map {
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-map-container {
+    flex-direction: column;
+  }
+
+  .map {
+    height: 200px;
+  }
+}
+  
+  .company-contact {
+    margin-bottom: 40px;
+  }
+  
+  .company-contact p {
+    font-size: 16px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .company-contact p i {
+    color: #384367    ;
+    font-size: 20px;
+  }
+  .company-contact button{
+    display: inline-block;
+    background: #384367;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    margin-top: 20px;
+  }
+  /* Rating and Comment Section */
+  .rating-comment-section {
+    margin-bottom: 40px;
+  }
+  
+  .rating-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .rating-input .stars {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .rating-input .stars i {
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .rating-input .stars i.active {
+    color: #ffdd57;
+  }
+  
+  .rating-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .comment-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    resize: vertical;
+  }
+  
+  .comment-form button {
+    display: inline-block;
+    background: #384367;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .comment-form button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Reviews Section */
+  .reviews-section {
+    margin-bottom: 40px;
+  }
+  
+  .review {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .reviewer {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .review-rating {
+    font-size: 16px;
+    color: #ffdd57;
+  }
+  
+  .review-text {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Back Button */
+  .back-button {
+    display: inline-block;
+    background: #384367;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .back-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: 40px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .company-overview {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .company-logo {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .details-container {
+      padding: 20px;
+    }
+  }

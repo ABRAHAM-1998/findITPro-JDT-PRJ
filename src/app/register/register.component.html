@@ -1,0 +1,114 @@
+<body>
+  <header>
+    <nav>
+      <div class="logo">FindITPro</div>
+      <ul class="nav-links">
+        <li><a [routerLink]="['/home']">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="register-section">
+    <div class="register-container">
+      <h2>Register Your Company</h2>
+      <p>Join our network of IT companies and showcase your services.</p>
+
+      <!-- Registration Form -->
+      <form class="register-form" (ngSubmit)="onSubmit()">
+        <!-- Company Details -->
+        <div class="form-group">
+          <label for="company-name"><i class="bi bi-building-fill"></i> Company Name</label>
+          <input type="text" id="company-name" name="company-name" placeholder="Enter your company name" required [(ngModel)]="company.name">
+        </div>
+
+        <div class="form-group">
+          <label for="company-email"><i class="bi bi-envelope-fill"></i> Company Email</label>
+          <input type="email" id="company-email" name="company-email" placeholder="Enter your company email" required [(ngModel)]="company.email">
+        </div>
+
+        <div class="form-group">
+          <label for="company-phone"><i class="bi bi-telephone-fill"></i> Company Phone</label>
+          <input type="tel" id="company-phone" name="company-phone" placeholder="Enter your company phone number" required [(ngModel)]="company.phone">
+        </div>
+
+        <div class="form-group">
+          <label for="company-address"><i class="bi bi-house-door-fill"></i> Company Address</label>
+          <input type="text" id="company-address" name="company-address" placeholder="Enter your company address" required [(ngModel)]="company.address">
+        </div>
+        
+        <div class="form-group">
+          <label for="company-location"><i class="bi bi-geo-alt-fill"></i> Location</label>
+          <input type="text" id="company-location" name="company-location" placeholder="Enter your company location" required [(ngModel)]="company.location">
+        </div>
+
+        <!-- Category -->
+        <div class="form-group">
+          <label for="company-category"><i class="bi bi-list"></i> Category</label>
+          <select id="company-category" name="company-category" required [(ngModel)]="company.category">
+            <option value="" disabled selected>Select a category</option>
+            <option value="Software Development">Software Development</option>
+            <option value="Artificial Intelligence & Data Science">Artificial Intelligence & Data Science</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="IT Services & Consulting Firms">IT Services & Consulting Firms</option>
+            <option value="Web & Mobile App Development">Web & Mobile App Development</option>
+            <option value="Cloud Computing & Virtualization">Cloud Computing & Virtualization</option>
+            <option value="Game Development & Gaming Tech">Game Development & Gaming Tech</option>
+            <option value="Blockchain & Web3">Blockchain & Web3</option>
+            <option value="IT Infrastructure & Networking Companies"> IT Infrastructure & Networking Companies</option>
+            <option value="IoT & Smart Devices Companies">IoT & Smart Devices Companies</option>
+            <option value="IT Research & Development">IT Research & Development</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><i class="bi bi-list"></i> Services</label>
+          <div class="services-list">
+            <div *ngFor="let service of company.services; let i = index" class="service-item">
+              <input type="text" [(ngModel)]="company.services[i]" [name]="'service' + i" placeholder="Enter a service" required>
+              <button type="button" (click)="removeService(i)" class="remove-service-button">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </div>
+          <button type="button" (click)="addService()" class="add-service-button">
+            <i class="bi bi-plus"></i> Add Service
+          </button>
+        </div>
+      
+        <!-- description about the company -->
+        <div class="form-group">
+          <label for="company-description"><i class="bi bi-journal-x"></i> Description</label>
+          <input type="text" id="company-description" name="company-description" placeholder="Enter your company description" required [(ngModel)]="company.description">
+        </div>
+
+        <!--about the company -->
+        <div class="form-group">
+          <label for="company-details"><i class="bi bi-file-earmark-text-fill"></i>Details</label>
+          <input type="text" id="company-details" name="company-description" placeholder="Enter Details about the company" required [(ngModel)]="company.details">
+        </div>
+
+        <!-- Photo Upload -->
+        <div class="form-group file-upload">
+          <label for="company-photo"><i class="bi bi-camera-fill"></i> Upload Company Logo</label>
+          <input type="file" id="company-photo" name="company-photo" (change)="onFileSelected($event)" accept="image/*" required>
+          <div class="upload-area">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <p>Drag & drop or click to upload</p>
+          </div>
+        </div>
+
+        <!-- Show Selected Image Preview -->
+        <div *ngIf="selectedFile">
+          <p>Selected File: {{ selectedFile.name }}</p>
+          <img [src]="previewUrl" *ngIf="previewUrl" alt="Image Preview" width="150">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-button">Register Now</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Find IT Pro. All rights reserved.</p>
+  </footer>
+</body>

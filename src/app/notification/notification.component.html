@@ -1,0 +1,151 @@
+<header>
+    <nav>
+      <div class="logo">FindITPro</div>
+      <ul class="nav-links">
+        <li><a [routerLink]="['/admin']">Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="admin-notifications-section">
+    <div class="admin-notifications-container">
+      <h1><i class="fas fa-bell"></i> Notification Center</h1>
+  
+      <!-- Tab Buttons -->
+      <div class="notification-tabs">
+        <button
+          class="tab-button"
+          [ngClass]="{'active': activeTabIndex === 0}"
+          (click)="changeTab(0)"
+        >
+          Send Notification
+        </button>
+        <button
+          class="tab-button"
+          [ngClass]="{'active': activeTabIndex === 1}"
+          (click)="changeTab(1)"
+        >
+          Notification History
+        </button>
+      </div>
+  
+      <!-- Send Notification Tab -->
+      <div class="notification-tab" [ngClass]="{'active': activeTabIndex === 0}">
+        <form class="notification-form">
+          <div class="form-group">
+            <label for="recipient-type">Recipient Type</label>
+            <select id="recipient-type">
+              <option value="all">All Users</option>
+              <option value="specific">Specific Users</option>
+              <option value="category">By Category</option>
+              <option value="role">By Role</option>
+            </select>
+          </div>
+  
+          <!-- Optional User Select (could use *ngIf for visibility control) -->
+          
+  
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Notification subject" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              rows="8"
+              placeholder="Write your notification message here..."
+              required
+            ></textarea>
+          </div>
+  
+          <div class="form-group">
+            <label>Notification Type</label>
+            <div class="notification-type">
+              <label>
+                <input type="radio" name="notification-type" value="email" checked />
+                <span>Email Only</span>
+              </label>
+              <label>
+                <input type="radio" name="notification-type" value="both" />
+                <span>Email + In-App</span>
+              </label>
+            </div>
+          </div>
+  
+          <div class="form-actions">
+            <button type="button" class="preview-button">
+              <i class="fas fa-eye"></i> Preview
+            </button>
+            <button type="submit" class="send-button">
+              <i class="fas fa-paper-plane"></i> Send Notification
+            </button>
+          </div>
+        </form>
+      </div>
+  
+      <!-- Notification History Tab -->
+      <div class="notification-tab" [ngClass]="{'active': activeTabIndex === 1}">
+        <div class="history-filters">
+          <div class="form-group">
+            <label for="date-range">Date Range</label>
+            <select id="date-range">
+              <option>Last 7 days</option>
+              <option>Last 30 days</option>
+              <option>Last 90 days</option>
+              <option>Custom range</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="search">Search</label>
+            <input type="text" id="search" placeholder="Search notifications..." />
+          </div>
+        </div>
+  
+        <div class="notification-history">
+          <!-- History Item 1 -->
+          <div class="history-item">
+            <div class="history-header">
+              <h3>New Feature Update</h3>
+              <span class="sent-date">April 10, 2025</span>
+            </div>
+            <div class="history-details">
+              <p><strong>Recipients:</strong> Premium users (112)</p>
+              <p><strong>Type:</strong> Email Only</p>
+              <div class="history-actions">
+                <button class="view-button"><i class="fas fa-eye"></i> View</button>
+                <button class="resend-button"><i class="fas fa-redo"></i> Resend</button>
+              </div>
+            </div>
+          </div>
+  
+          <!-- History Item 3 -->
+          <div class="history-item">
+            <div class="history-header">
+              <h3>Security Alert</h3>
+              <span class="sent-date">April 5, 2025</span>
+            </div>
+            <div class="history-details">
+              <p><strong>Recipients:</strong> All administrators (15)</p>
+              <p><strong>Type:</strong> Email + In-App</p>
+              <div class="history-actions">
+                <button class="view-button"><i class="fas fa-eye"></i> View</button>
+                <button class="resend-button"><i class="fas fa-redo"></i> Resend</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="pagination">
+          <button class="page-button"><i class="fas fa-chevron-left"></i></button>
+          <span class="current-page">1</span>
+          <button class="page-button"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 FindITPro. All rights reserved.</p>
+  </footer>
+  

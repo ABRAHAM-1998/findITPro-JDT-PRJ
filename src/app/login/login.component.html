@@ -1,0 +1,44 @@
+<body>
+    <header>
+      <nav>
+        <div class="logo">FindITPro</div>
+        <ul class="nav-links">
+          <li><a [routerLink]="['/login']">Login</a></li>
+          <li><a [routerLink]="['/sign-up']">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <section class="login-section">
+      <div class="login-container">
+        <h2>Login</h2>
+        <p>Welcome back! Please log in to your account.</p>
+        <!-- Login Form -->
+        <form class="login-form">
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required #userName >
+          </div>
+  
+          <div class="form-group">
+            <label for="password"><i class="fas fa-lock"></i> Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required #userPassword>
+          </div>
+  
+          <div class="form-group">
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+  
+          <button type="button" class="login-button" (click)="onLogin(userName.value, userPassword.value)">Log In</button>
+  
+          <div class="signup-link">
+            <p>Don't have an account? <a [routerLink]="['/sign-up']">Sign Up</a></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  
+    <footer>
+      <p>&copy; 2025 FindITPro. All rights reserved.</p>
+    </footer>
+  </body>
